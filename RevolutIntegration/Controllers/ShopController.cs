@@ -68,7 +68,6 @@ namespace RevolutIntegration.Controllers
 				var data = JObject.Parse(response.Content);
 				string? checkoutUrl = (string?)data["checkout_url"];
 				Console.WriteLine(data.ToString());
-				Console.WriteLine(checkoutUrl);
 				if (checkoutUrl != null)
 					return Redirect(checkoutUrl);
 			}
