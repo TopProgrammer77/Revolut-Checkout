@@ -1,0 +1,41 @@
+﻿@model RevolutIntegration.Models.OrderRequest
+
+@{
+    ViewData["Title"] = "Revolut Pay Example";
+}
+<div class="text-center">
+    <h1>Revolut Pay Example</h1>
+</div>
+<div class="justify-content-center d-xl-flex">
+
+        <div class="card">
+            <form asp-action="Order" method="post" target="_blank">
+                <img src="./assets/nice_glasses.jpeg"
+                     alt="Avatar"
+                     style="width: 100%" />
+                <div class="container">
+                    <div class="description">
+                        <h3 id="product_name">Rounded Glasses</h3>
+                        <input type="hidden" asp-for="Description" value="Rounded Glassses"/>
+                        <div class="badge">
+                            <span>Hot deal</span>
+                        </div>
+                    </div>
+                    <div class="price-container">
+                        <span class="price">$15</span>
+                        <input type="hidden" asp-for="Price" value="1500" />
+                        <input type="hidden" asp-for="Currency" value="USD" />
+                    </div>
+                    <div style="margin-bottom: 24px;">
+                        <input type="submit" value="Buy" class="done-btn"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+</div>
+
+@section Scripts {
+    <script>!function(e,o,t){var n={sandbox:"https://sandbox-merchant.revolut.com/embed.js",prod:"https://merchant.revolut.com/embed.js"},r={sandbox:"https://sandbox-merchant.revolut.com/upsell/embed.js",prod:"https://merchant.revolut.com/upsell/embed.js"},l=function(e){var n=function(e){var t=o.createElement("script");return t.id="revolut-checkout",t.src=e,t.async=!0,o.head.appendChild(t),t}(e);return new Promise((function(e,r){n.onload=function(){return e()},n.onerror=function(){o.head.removeChild(n),r(new Error(t+" failed to load"))}}))},u=function(){if(window.RevolutCheckout===i||!window.RevolutCheckout)throw new Error(t+" failed to load")},c={},d={},i=function o(r,d){return c[d=d||"prod"]?Promise.resolve(c[d](r)):l(n[d]).then((function(){return u(),c[d]=window.RevolutCheckout,e[t]=o,c[d](r)}))};i.payments=function(o){var r=o.mode||"prod",d={locale:o.locale||"auto",publicToken:o.publicToken||null};return c[r]?Promise.resolve(c[r].payments(d)):l(n[r]).then((function(){return u(),c[r]=window.RevolutCheckout,e[t]=i,c[r].payments(d)}))},i.upsell=function(e){var o=e.mode||"prod",n={locale:e.locale||"auto",publicToken:e.publicToken||null};return d[o]?Promise.resolve(d[o](n)):l(r[o]).then((function(){if(!window.RevolutUpsell)throw new Error(t+" failed to load");return d[o]=window.RevolutUpsell,delete window.RevolutUpsell,d[o](n)}))},e[t]=i}(window,document,"RevolutCheckout");
+    </script>
+}

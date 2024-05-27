@@ -1,0 +1,27 @@
+﻿@model RevolutIntegration.Models.OrderResponse
+@{
+    ViewData["Title"] = "Buy";
+    var response = Newtonsoft.Json.JsonConvert.SerializeObject(Model);
+}
+
+<div class="wrapper">
+    <main>
+        <div class="card">
+            <img src="~/assets/nice_glasses.jpeg"
+                    alt="Avatar"
+                    style="width: 100%" />
+            <div class="container">
+                <div class="description">
+                    <h3 id="product_name">Rounded Glasses</h3>
+                    <div class="badge">
+                        <span>Hot deal</span>
+                    </div>
+                </div>
+                <div class="price-container">
+                    <span class="price">$15</span>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
