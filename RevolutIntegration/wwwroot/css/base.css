@@ -78,3 +78,18 @@ body {
   border-radius: 4px;
   font-size: 0.8em;
 }
+
+.done-btn {
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 1rem;
+    background-color: #3182ce;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    margin-top: 40px;
+}
